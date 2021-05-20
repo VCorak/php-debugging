@@ -15,8 +15,9 @@ function new_exercise($x) {
     $block = "<br/><hr/><br/><br/>Exercise $x starts here:<br/>";
     echo $block;
 }
-
 echo new_exercise(1);
+
+// EXPLANATION Have to give argument $x to function that it starts from 1 (first).
 
 new_exercise(2);
 // === Exercise 2 ===
@@ -28,12 +29,16 @@ $monday = $week[0];
 
 echo $monday;
 
+// EXPLANATION Array starts from 0, Monday is 0, not 1.
+
 new_exercise(3);
 // === Exercise 3 ===
 // This should echo ` "Debugged !" `, fix it so that that is the literal text echo'ed
 
 $str = "Debugged ! Also very fun";
 echo substr($str, 0, 10);
+
+// EXPLANATION Wrong quotation marks for string, should be "".
 
 new_exercise(4);
 // === Exercise 4 ===
@@ -47,17 +52,19 @@ foreach($week as &$day) {
 
 print_r($week);
 
+// EXPLANATION  Had to add ampersand to actually include string lenght be three letters long.
+
 new_exercise(5);
 // === Exercise 5 ===
 // The array should be printing every letter of the alfabet (a-z) but instead it does that + aa-yz
 // Fix the code so the for loop only pushes a-z in the array
 
 $arr = [];
-for ($letter = 'a'; $letter < 'z'; $letter++) {
+for ($letter = 'a'; $letter != 'aa'; $letter++) {
     array_push($arr, $letter);
 }
 
 print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
 
-
+// EXPLANATION: for method have to loop through a to z, so one letter should be always include. With != we declare it can not be equal to double aa
 
