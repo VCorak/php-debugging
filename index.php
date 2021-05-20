@@ -107,3 +107,32 @@ function randomHeroName() {
 echo "Here is the name: " . combineNames();
 
 // EXPLANATION ...
+
+new_exercise(7);
+function copyright(int $year) {
+    return "&copy; $year BeCode";
+}
+//print the copyright
+ echo copyright(idate('Y'));
+
+//EXPLANATION idate — Format a local time/date as integer
+
+new_exercise(8);
+function login(string $email, string $password) {
+    if($email == 'john@example.be' && $password == 'pocahontas') {
+        return 'Welcome John Smith';
+
+    }
+    return 'No access';
+}
+
+//do not change anything below
+//should great the user with his full name (John Smith)
+echo login('john@example.be', 'pocahontas');
+//no access
+echo login('john@example.be', 'dfgidfgdfg');
+//no access
+echo login('wrong@example.be', 'wrong');
+//you can change things again!
+
+// EXPLANATION I added && to include email and password to access data. It has to return string in one line, with name and surname together.
