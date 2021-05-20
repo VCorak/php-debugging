@@ -17,7 +17,7 @@ function new_exercise($x) {
 }
 echo new_exercise(1);
 
-// EXPLANATION Have to give argument $x to function that it starts from 1 (first).
+// EXPLANATION Have to give argument $x to function to pass a parametar 1 (first).
 
 new_exercise(2);
 // === Exercise 2 ===
@@ -29,7 +29,7 @@ $monday = $week[0];
 
 echo $monday;
 
-// EXPLANATION Array starts from 0, Monday is 0, not 1.
+// EXPLANATION Array index starts from 0, Monday is 0, not 1.
 
 new_exercise(3);
 // === Exercise 3 ===
@@ -38,7 +38,8 @@ new_exercise(3);
 $str = "Debugged ! Also very fun";
 echo substr($str, 0, 10);
 
-// EXPLANATION Wrong quotation marks for string, should be "".
+// EXPLANATION Wrong quotation marks for string, should be "". The best is to write
+//another string and check how it behaves (green is good).
 
 new_exercise(4);
 // === Exercise 4 ===
@@ -52,7 +53,7 @@ foreach($week as &$day) {
 
 print_r($week);
 
-// EXPLANATION  Had to add ampersand to actually include string lenght be three letters long.
+// EXPLANATION  Check $day and remove it with &; with strlen we are returning part of the string.
 
 new_exercise(5);
 // === Exercise 5 ===
@@ -66,7 +67,8 @@ for ($letter = 'a'; $letter != 'aa'; $letter++) {
 
 print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
 
-// EXPLANATION: for method have to loop through a to z, so one letter should be always include. With != we declare it can not be equal to double aa
+// EXPLANATION: for method have to loop through a to z, so one letter should be always include.
+// With != we declare it can not be equal to double aa and we don't include that part of array, remove it with false.
 
 
 new_exercise(6);
@@ -87,26 +89,26 @@ function combineNames($str1 = "", $str2 = "") {
 }
 
 
-function randomGenerate($arr, $amount) {
+/*//function randomGenerate($arr, $amount) {
     for ($i = $amount; $i > 0; $i--) {
         array_push($arr, randomHeroName());
     }
 
     return $amount;
-}
+}*/
 
 function randomHeroName() {
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
     $heroes = [$hero_firstnames, $hero_lastnames];
-    $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
+    $randname = $heroes[rand(0,count($heroes) -1)][rand(0, 10)];
 
-    echo $randname;
+    return $randname;
 }
 
 echo "Here is the name: " . combineNames();
 
-// EXPLANATION ...
+// EXPLANATION We had to return $randname, not echo it and put -1 (don't quite understand why...) or rand(0, 1).
 
 new_exercise(7);
 function copyright(int $year) {
@@ -135,4 +137,44 @@ echo login('john@example.be', 'dfgidfgdfg');
 echo login('wrong@example.be', 'wrong');
 //you can change things again!
 
-// EXPLANATION I added && to include email and password to access data. It has to return string in one line, with name and surname together.
+// EXPLANATION I added && to include email and password to access data.
+// It has to return string in one line, with name and surname together.
+
+new_exercise(9);
+function isLinkValid(string $link) {
+    $unacceptables = array('https:','.doc','.pdf', '.jpg', '.jpeg', '.gif', '.bmp', '.png');
+
+    foreach ($unacceptables as $unacceptable) {
+        if (strpos($link, $unacceptable) !== true) {
+            echo 'Unacceptable Found <br />';
+        }
+            echo 'Acceptable <br />';
+        }
+
+}
+//invalid link
+isLinkValid('http://www.google.com/hack.pdf');
+//invalid link
+isLinkValid('https://google.com');
+//VALID link
+isLinkValid('http://google.com');
+//VALID link
+isLinkValid('http://google.com/test.txt');
+
+// EXPLANATION So, for link to return unnacceptable after looping through array argument has to be false or do not mach to anything in array.
+
+new_exercise(10);
+
+//Filter the array $areTheseFruits to only contain valid fruits
+//do not change the arrays itself
+$areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
+$validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
+//from here on you can change the code
+for($i=0; $i <= count($areTheseFruits) + 1; $i++) {
+    if(!in_array($areTheseFruits[$i], $validFruits)) {
+        unset($areTheseFruits[$i]);
+    }
+}
+var_dump($areTheseFruits);//do not change this
+
+// EXPLANATION not to clear why we have to put +1 here
