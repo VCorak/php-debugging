@@ -146,22 +146,24 @@ function isLinkValid(string $link) {
 
     foreach ($unacceptables as $unacceptable) {
         if (strpos($link, $unacceptable) !== false) {
-            echo 'Unacceptable Found <br />';
-        }
-            echo 'Acceptable <br />';
+            return 'Unacceptable Found <br />';
         }
 
+        }
+    return 'Acceptable <br />';
 }
-//invalid link
-isLinkValid('http://www.google.com/hack.pdf');
-//invalid link
-isLinkValid('https://google.com');
-//VALID link
-isLinkValid('http://google.com');
-//VALID link
-isLinkValid('http://google.com/test.txt');
 
-// EXPLANATION So, for link to return unacceptable after looping through array argument has to be false or do not mach to anything in array.
+//invalid link
+echo isLinkValid('http://www.google.com/hack.pdf');
+//invalid link
+echo isLinkValid('https://google.com');
+//VALID link
+echo isLinkValid('http://google.com');
+//VALID link
+echo isLinkValid('http://google.com/test.txt');
+
+// EXPLANATION So, for link to return unacceptable after looping through array argument has to be false or do not mach to anything in array and echo every
+// link after check.
 
 new_exercise(10);
 
@@ -170,11 +172,12 @@ new_exercise(10);
 $areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
 $validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
 //from here on you can change the code
-for($i = 0; $i <= count($areTheseFruits) + 1; $i++) {
+$count = count($areTheseFruits);
+for($i = 0; $i < $count; $i++) {
     if(!in_array($areTheseFruits[$i], $validFruits)) {
         unset($areTheseFruits[$i]);
     }
 }
 var_dump($areTheseFruits);//do not change this
 
-// EXPLANATION not too clear why we have to put +1 here
+// EXPLANATION I declared $count variable of areTheseFruits to include each item of fruits in array. Then looping through array we check for fruits. 
