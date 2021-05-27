@@ -145,7 +145,7 @@ function isLinkValid(string $link) {
     $unacceptables = array('https:','.doc','.pdf', '.jpg', '.jpeg', '.gif', '.bmp', '.png');
 
     foreach ($unacceptables as $unacceptable) {
-        if (strpos($link, $unacceptable) !== true) {
+        if (strpos($link, $unacceptable) !== false) {
             echo 'Unacceptable Found <br />';
         }
             echo 'Acceptable <br />';
@@ -161,7 +161,7 @@ isLinkValid('http://google.com');
 //VALID link
 isLinkValid('http://google.com/test.txt');
 
-// EXPLANATION So, for link to return unnacceptable after looping through array argument has to be false or do not mach to anything in array.
+// EXPLANATION So, for link to return unacceptable after looping through array argument has to be false or do not mach to anything in array.
 
 new_exercise(10);
 
@@ -170,11 +170,11 @@ new_exercise(10);
 $areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
 $validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
 //from here on you can change the code
-for($i=0; $i <= count($areTheseFruits) + 1; $i++) {
+for($i = 0; $i <= count($areTheseFruits) + 1; $i++) {
     if(!in_array($areTheseFruits[$i], $validFruits)) {
         unset($areTheseFruits[$i]);
     }
 }
 var_dump($areTheseFruits);//do not change this
 
-// EXPLANATION not to clear why we have to put +1 here
+// EXPLANATION not too clear why we have to put +1 here
